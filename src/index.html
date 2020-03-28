@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pegasus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/json-viewer.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="main">
+    <nav id="navbar" class="bar bar-2 sticky-top navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 order-lg-2">
+                    <div class="bar__module my-auto">
+                        <a href="index.html">
+                            <img alt="logo" class="border-radius-50" height="70" src="img/pegasus-128.png" />
+                        </a>
+                        <span id="selectedProvider" class="float-right font-weight-bold mt-4 text-sm"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="main-container">
+        <section class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button id="connect" onclick="connect()" class="btn-connect mr-2 cursor-pointer text-md">
+                            Connect Pegasus
+                        </button>
+                    </div>
+                    <div id="pegasus-not-installed" class="col-12 text-center hide">
+                        <span class="text-danger display-3">Pegasus not Installed!</span>
+                        <br />
+                        You can install it from
+                        <a class="font-weight-bold"
+                            href="https://chrome.google.com/webstore/detail/pegasus/calgckkhkgbbefgebdlodkhophhjgcal"
+                            target="blank">here</a>
+                    </div>
+                    <div id="pegasus-connected" class="col-12 mt-4 text-md hide">
+                        Selected Account:
+                        <h5 id="selectedAccount"></h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr />
+
+
+        <section class="text-center">
+            <div class="tabs-container" data-content-align="left">
+                <ul class="tabs tabs--spaced">
+                    <li class="active">
+
+                        <div class="tab__title text-center">
+                            <i class="icon icon--sm block icon-Text-Effect"></i>
+                            <span class="h5">Send IOTA</span>
+                        </div>
+                        <div class="tab__content">
+                            <div class="container">
+                                <div class="row mt-5">
+                                    <div class="col-7 mx-auto">
+                                        <label>address</label>
+                                        <input id="address" type="text" name="address" />
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-7 mx-auto">
+                                        <label>amount</label>
+                                        <input id="amount" type="number" name="amount" />
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-7 mx-auto">
+                                        <label>message</label>
+                                        <input id="message" type="text" name="message" />
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-7 mx-auto">
+                                        <label>tag</label>
+                                        <input id="tag" type="text" name="tag" />
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12 text-center">
+                                        <button onclick="send()" class="btn-connect mr-2 cursor-pointer text-sm">
+                                            send
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div id="json-bundle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tab__title text-center">
+                            <i class="icon icon--sm block icon-Target-Market"></i>
+                            <span class="h5">Get node info</span>
+                        </div>
+
+                        <div class="tab__content">
+                            <div class="container switchable switchable--switch">
+                                <div class="row mt-5">
+                                    <div class="col-12 text-center">
+                                        <button onclick="getNodeInfo()" class="btn-connect mr-2 cursor-pointer text-sm">
+                                            Get node info
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-12">
+                                        <div id="json-node-info"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tab__title text-center">
+                            <i class="icon icon--sm block icon-Love-User"></i>
+                            <span class="h5">MAM</span>
+                        </div>
+                        <div class="tab__content">
+                            <div class="container">
+                                <div class="row">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="space--sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="space--sm footer-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="type--fine-print">&copy;
+                            <span class="update-year"></span> Manfredi Alessandro</span>
+                    </div>
+                    <div class="col-md-6 text-right text-left-xs">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/pegasus.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.steps.min.js"></script>
+    <script src="js/json-viewer.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

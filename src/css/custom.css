@@ -1,0 +1,81 @@
+body {
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
+.navbar-fixed-top.scrolled {
+  background-color: white !important;
+  transition: background-color 200ms linear;
+}
+
+.table-responsive {
+  max-height:500px;
+}
+
+.float-right {
+  float: right;
+}
+
+.btn-connect {
+  border-radius: 10rem;
+  padding-top: 0.46428571em;
+  padding-bottom: 0.46428571em;
+  padding-right: 1.78571429em;
+  padding-left: 1.78571429em;
+  border-width: 1px;
+  font-size: inherit;
+  line-height: 1.85714286em;
+  background: white;
+  border: 1px solid #242A2E;
+  background: darkblue;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-connect:hover, .btn-connect:focus {
+  text-decoration: none; 
+}
+
+.btn-connect:focus, .btn-connect.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-connect:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+ul {
+  margin: 0 !important;
+}
+
+.border-radius-50 {
+  border-radius: 50%;
+}
+
+.bar {
+  padding: 20px;
+  background: white !important; 
+}
+
+.hide {
+  display: none;
+}
+
+.text-lg {
+  font-size: 30px;
+}
+
+.text-md {
+  font-size: 20px;
+}
+
+.text-sm {
+  font-size: 15px;
+}
+
+section {
+  padding-top: 5.428571em !important;
+  padding-bottom: 5.428571em !important;
+}
