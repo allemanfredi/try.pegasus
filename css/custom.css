@@ -79,3 +79,7 @@ section {
   padding-top: 5.428571em !important;
   padding-bottom: 5.428571em !important;
 }
+
+.text-primary {
+  color: darkblue !important;
+}
