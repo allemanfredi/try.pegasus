@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Try Pegasus</title>
+    <title>Pegasus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <link rel="shortcut icon" href="./favicon.ico">
@@ -57,6 +57,7 @@
 
         <hr />
 
+
         <section class="text-center">
             <div class="tabs-container" data-content-align="left">
                 <ul class="tabs tabs--spaced">
@@ -90,15 +91,6 @@
                                     <div class="col-7 mx-auto">
                                         <label>tag</label>
                                         <input id="tag" type="text" name="tag" />
-                                    </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="col-7 text-center">
-                                        <div class="alert bg--primary text-primary">
-                                            Before sending IOTA make sure to have
-                                            setup Pegasus on Devnet if you just want
-                                            to try one
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -142,47 +134,12 @@
                     <li>
                         <div class="tab__title text-center">
                             <i class="icon icon--sm block icon-Love-User"></i>
-                            <span class="h5">Create a MAM Channel</span>
+                            <span class="h5">MAM</span>
                         </div>
                         <div class="tab__content">
                             <div class="container">
-                                <div class="row mt-5">
-                                    <div class="col-7 text-center">
-                                        <div class="alert bg--primary text-primary">
-                                            Mam functions are still experimental
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-5">
-                                    <div class="col-7 mx-auto">
-                                        <div class="input-select">
-                                            <select id="mamMode" onchange="changeMamMode()">
-                                                <option selected="" value="Default">Select the mode</option>
-                                                <option value="public">Public</option>
-                                                <option value="private">Private</option>
-                                                <option value="restricted">Restricted</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="mam-sidekey" class="row mt-3 hide">
-                                    <div class="col-7 mx-auto">
-                                        <label>sidekey</label>
-                                        <input id="mam-sidekey-value" id="sidekey" type="text" name="sidekey" />
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-12 text-center">
-                                        <button onclick="createMamChannel()"
-                                            class="btn-connect mr-2 cursor-pointer text-sm">
-                                            Create
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-12">
-                                        <div id="json-create-mam-channel"></div>
-                                    </div>
+                                <div class="row">
+                                    
                                 </div>
                             </div>
                         </div>

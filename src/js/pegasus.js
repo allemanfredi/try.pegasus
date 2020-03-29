@@ -17,7 +17,6 @@ async function getNodeInfo() {
 }
 
 async function send() {
-
   const address =  document.querySelector("#address").value
   const value =  document.querySelector("#amount").value
   const tag =  document.querySelector("#tag").value
@@ -60,3 +59,30 @@ window.addEventListener('load', e => {
     }
   }, 500)
 })
+
+function changeMamMode() {
+  if (document.getElementById("mamMode").value === 'restricted') {
+    document.getElementById('mam-sidekey').classList.remove('hide')
+  } else {
+    document.getElementById('mam-sidekey').classList.add('hide')
+  }
+}
+
+async function createMamChannel() {
+  // Initialise MAM State
+  let mamState = await window.iota.mam.init()
+
+  // secretKey will be stored encrypted with login psw (subscriber need to register both root and sidekey through the popup)
+  if (document.getElementById("mamMode").value === 'restricted') {
+    const secretKey = document.getElementById("mam-sidekey-value").value
+    mamState = await window.iota.mam.changeMode(mamState, 'restricted', secretKey.padEnd(81, '9'))
+  }
+
+  if (document.getElementById("mamMode").value === 'private') {
+    mamState = await window.iota.mam.changeMode(mamState, 'private', null)
+  }
+
+  const jsonViewer = new JSONViewer()
+  document.querySelector("#json-create-mam-channel").appendChild(jsonViewer.getContainer())
+  jsonViewer.showJSON(mamState)
+}
