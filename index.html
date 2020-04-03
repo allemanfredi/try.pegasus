@@ -64,7 +64,63 @@
 
                         <div class="tab__title text-center">
                             <i class="icon icon--sm block icon-Text-Effect"></i>
-                            <span class="h5">Send IOTA</span>
+                            <span class="h5">Send IOTA </br> (.core.prepareTransfers + .core.sendTrytes)</span>
+                        </div>
+                        <div class="tab__content">
+                            <div class="container">
+                                <div class="row mt-5">
+                                    <div class="col-7 mx-auto">
+                                        <label>address</label>
+                                        <input id="address-d" type="text" name="address-d" />
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-7 mx-auto">
+                                        <label>amount</label>
+                                        <input id="amount-d" type="number" name="amount-d" />
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-7 mx-auto">
+                                        <label>message</label>
+                                        <input id="message-d" type="text" name="message-d" />
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-7 mx-auto">
+                                        <label>tag</label>
+                                        <input id="tag-d" type="text" name="tag-d" />
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-7 text-center">
+                                        <div class="alert bg--primary text-primary">
+                                            Before sending IOTA make sure to have
+                                            setup Pegasus on Devnet if you just want
+                                            to try one
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12 text-center">
+                                        <button onclick="send()" class="btn-connect mr-2 cursor-pointer text-sm">
+                                            send
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div id="json-bundle-d"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+
+                        <div class="tab__title text-center">
+                            <i class="icon icon--sm block icon-Text-Effect"></i>
+                            <span class="h5">Send IOTA </br> (.transfer)</span>
                         </div>
                         <div class="tab__content">
                             <div class="container">
@@ -103,7 +159,7 @@
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-12 text-center">
-                                        <button onclick="send()" class="btn-connect mr-2 cursor-pointer text-sm">
+                                        <button onclick="sendAndBroadcast()" class="btn-connect mr-2 cursor-pointer text-sm">
                                             send
                                         </button>
                                     </div>
@@ -119,7 +175,7 @@
                     <li>
                         <div class="tab__title text-center">
                             <i class="icon icon--sm block icon-Target-Market"></i>
-                            <span class="h5">Get node info</span>
+                            <span class="h5">Get node info </br> (.core.getNodeInfo)</span>
                         </div>
 
                         <div class="tab__content">
@@ -142,7 +198,7 @@
                     <li>
                         <div class="tab__title text-center">
                             <i class="icon icon--sm block icon-Love-User"></i>
-                            <span class="h5">Create a MAM Channel</span>
+                            <span class="h5">Create a MAM Channel </br> (.mam.create)</span>
                         </div>
                         <div class="tab__content">
                             <div class="container">
@@ -188,16 +244,6 @@
                         </div>
                     </li>
                 </ul>
-            </div>
-        </section>
-
-        <section class="space--sm">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-
-                    </div>
-                </div>
             </div>
         </section>
 

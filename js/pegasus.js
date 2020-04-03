@@ -17,6 +17,28 @@ async function getNodeInfo() {
 }
 
 async function send() {
+  const address =  document.querySelector("#address-d").value
+  const value =  document.querySelector("#amount-d").value
+  const tag =  document.querySelector("#tag-d").value
+  const message =  document.querySelector("#message-d").value
+
+  const transfers = [{
+    address,
+    value: value, 
+    tag: window.iota.converter.asciiToTrytes(tag),
+    message: window.iota.converter.asciiToTrytes(message),
+  }]
+
+
+  //const res = await window.iota.transfer(transfers)
+  const trytes = await window.iota.core.prepareTransfers(transfers)
+  const bundle = await window.iota.core.sendTrytes(trytes, 3, 9)
+  const jsonViewer = new JSONViewer()
+  document.querySelector("#json-bundle").appendChild(jsonViewer.getContainer())
+  jsonViewer.showJSON(bundle)
+}
+
+async function sendAndBroadcast() {
   const address =  document.querySelector("#address").value
   const value =  document.querySelector("#amount").value
   const tag =  document.querySelector("#tag").value
@@ -30,10 +52,11 @@ async function send() {
   }]
 
 
-  const res = await window.iota.core.prepareTransfers(transfers)
+  //const res = await window.iota.transfer(transfers)
+  const bundle = await window.iota.transfer(transfers)
   const jsonViewer = new JSONViewer()
-  document.querySelector("#json-bundle").appendChild(jsonViewer.getContainer())
-  jsonViewer.showJSON(res)
+  document.querySelector("#json-bundle-d").appendChild(jsonViewer.getContainer())
+  jsonViewer.showJSON(bundle)
 }
 
 window.addEventListener('load', e => {
